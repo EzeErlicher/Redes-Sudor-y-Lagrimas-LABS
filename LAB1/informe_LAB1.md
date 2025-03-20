@@ -12,17 +12,17 @@
 ctrl+shift+v to visualize preview 
 
 ## Profesores: ##
-  -Santiago Martin Henn
-  -Francisco Nicolas Oliva Cuneo
+  - Santiago Martin Henn
+  - Francisco Nicolas Oliva Cuneo
 
 ## Nombre del Grupo: ##
- “Redes,Sudor y Lágrimas” 
+*“Redes, Sudor y Lágrimas”*
 
 ## Integrantes: ##
 - Badariotti, Juan Miguel - 42260003
 - Cáceres, Juan Manuel - 
 - Erlicher, Ezequiel - 42051917
-- Dallari,
+- Dallari, Giuliano -
 
 ![alt text](<Screenshot from 2025-03-20 19-15-46.png>)
 
