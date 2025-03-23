@@ -53,15 +53,19 @@ contraseñas
 
 ## c) Conexión de 2 computadoras y testeo de conectividad
 
-Se conectan 2 computadoras al switch mediante cables Ethernet (RJ45) y se configuraron las siguientes direcciones IP en cada una:
+Se conectan 2 computadoras al switch con Ubuntu OS mediante cables Ethernet (RJ45).Se configuraron las siguientes direcciones IP `192.168.1.12` y `192.168.1.11` respectivamente desde el admininistrador de red ethernet de cada laptop.
 
-#image 1
 
-#image 2
+![alt text](image-8.png)
 
-una vez configuradas las IP's, se testeo la conectividad entre ambas mediante comandos PING:
+La configuración para la computadora con IP `192.168.1.12` se hace de manera análoga
 
-#image 3
+
+Una vez configuradas las IP's, se testeo la conectividad entre ambas mediante comandos PING.
+
+![alt text](image-9.png)
+
+![alt text](image-10.png)
 
 
 ## d) Configuración de un puerto en modo mirroring y monitoreo de tráfico
