@@ -30,7 +30,11 @@ ctrl+shift+v to visualize preview
 </div>
 
 
-## 2) ##
+## 2) Creación de una Red ##
+
+Se configura la siguiente topología en Packet Tracer para realizar los apartados 4) ,5), 6) y 7)
+
+![alt text](<WhatsApp Image 2025-03-25 at 20.01.58.jpeg>)
 
 ## 3) ##
 
