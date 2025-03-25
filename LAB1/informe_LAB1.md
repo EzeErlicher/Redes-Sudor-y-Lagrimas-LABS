@@ -29,6 +29,45 @@ ctrl+shift+v to visualize preview
 # Parte I - Configuración y Análisis de tráfico IPv4/IPv6 #
 </div>
 
+
+## 2) ##
+
+## 3) ##
+
+## 4)  Conectividad IPv4 entre todos los host ##
+
+Se evalúa la conectividad entre las 3 computadoras de la topología mostrada en  el punto 2
+mediante el envío de paquetes ICMPv4 usando el comando `ping`
+
+PC0:
+
+![alt text](<Screenshot from 2025-03-25 19-42-44.png>)
+
+PC1:
+
+![alt text](<Screenshot from 2025-03-25 19-40-15.png>)
+
+PC2:
+
+![alt text](<Screenshot from 2025-03-25 19-37-40.png>)
+
+## 5)  Conectividad IPv6 entre todos los host ##
+
+ahora se evalúa de nuevo la conectividad de las 3 computadoras de la topología 2) pero ahora con respecto a sus direcciones IPv6 enviando paquetes ICMPv6(también con el comando `ping`)
+
+IPv6 PC0:
+
+![alt text](<Screenshot from 2025-03-25 19-47-36.png>)
+
+IPv6 PC1:
+
+![alt text](<Screenshot from 2025-03-25 19-48-18.png>)
+
+IPv6 PC2:
+
+![alt text](<Screenshot from 2025-03-25 19-50-25.png>)
+
+
 <div style="text-align: center;"> 
 
 # Parte II - Configuración y Análisis de tráfico IPv4/IPv6 #
