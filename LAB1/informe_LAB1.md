@@ -20,9 +20,9 @@ ctrl+shift+v to visualize preview
 
 ## Integrantes: ##
 - Badariotti, Juan Miguel - 42260003
-- Cáceres, Juan Manuel - 
+- Cáceres, Juan Manuel - 42260003
 - Erlicher, Ezequiel - 42051917
-- Dallari,
+- Dallari, Giuliano - 42642389
 
 <div style="text-align: center;"> 
 
@@ -149,6 +149,37 @@ IPv6 PC2:
 
 
 <div style="text-align: center;"> 
+
+## 6) Trafico ICMP entre clientes ##
+
+a) Las comunicaciones ARP que se observan son las utilizadas por los distintos dispositivos para conocer la dirección Mac de cada uno de los otros dispositivos. Al hacer ping desde H1 a H2, solo conocemos la dirección ip de H2. Se procede entonces a hacer una comunicación Broadcast a todos los host conectados al Switch, y solo responderá el que posee la dirección ip a la cual estamos haciendo ping, en este caso H2. Como se ve en la imagen, el mensaje pasa de H1 al router, del router al switch, y del switch a H2 y H3. Solamente responderá con su dirección Mac H2, que sería el mensaje que va primero de H2 al switch, y luego del switch al router. 
+
+![alt text](image-11.png)
+
+b)
+
+![alt text](image-12.png)
+
+c) Cuando llega un paquete a la interfaz del router, el router examina la dirección IP de destino del paquete y busca en su tabla de enrutamiento para determinar dónde enviar el paquete. La tabla de enrutamiento contiene una lista de todas las direcciones de red conocidas (prefijos) y a dónde enviar el paquete. 
+Un router puede descubrir redes remotas de dos maneras:
+Manualmente - las redes remotas se ingresan manualmente en la tabla de rutas mediante rutas estáticas.
+Dinámicamente - las rutas remotas se aprenden automáticamente mediante un protocolo de enrutamiento dinámico.
+
+d) Lo utilizamos para dirigir el tráfico de datos desde el dispositivo de origen hasta el de destino dentro de la red. Opera en la capa de enlace de datos del modelo OSI razón por la cual para establecer comunicaciones entre sí lo hace utilizando direcciones mac y no necesita de direcciones IP en sus interfaces.
+
+e) Contiene la dirección ip y mac del router. Dispositivo con el que se comunicó para poder enviar el mensaje a h2.![alt text](image-13.png)
+
+f) La tabla arp de h3 se encuentra vacía ya que aún no ha iniciado comunicación alguna.
+![alt text](image-14.png)
+
+g) Contiene las direcciones ip y mac de h1 y h2 junto al tiempo en minutos que cargó su información.
+![alt text](image-15.png)
+
+h) Si los datos encapsulados son un paquete broadcast IPv4, esto significa que el paquete contiene una dirección IPv4 de destino que tiene todos los (1s) en la parte del host. Esta numeración en la dirección significa que todos los hosts de esa red local (dominio de broadcast) recibirán y procesarán el paquete.
+
+i) Una trama de multicast de Ethernet es recibida y procesada por un grupo de dispositivos en la LAN de Ethernet que pertenecen al mismo grupo de multicast. Si los datos encapsulados son un paquete de multicast IP, a los dispositivos que pertenecen a un grupo de multicast se les asigna una dirección IP de grupo de multicast. El rango de direcciones de multicast IPv4 es 224.0.0.0 a 239.255.255.255.
+
+
 
 # Parte II - Configuración y Análisis de tráfico IPv4/IPv6 #
 </div>
