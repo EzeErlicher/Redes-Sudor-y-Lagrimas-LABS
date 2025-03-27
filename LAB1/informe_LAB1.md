@@ -20,7 +20,7 @@ ctrl+shift+v to visualize preview
 
 ## Integrantes: ##
 - Badariotti, Juan Miguel - 42260003
-- Cáceres, Juan Manuel - 42260003
+- Cáceres, Juan Manuel - 41411969
 - Erlicher, Ezequiel - 42051917
 - Dallari, Giuliano - 42642389
 
@@ -112,7 +112,20 @@ Se configura la siguiente topología en Packet Tracer para realizar los apartado
 
 ![alt text](<WhatsApp Image 2025-03-25 at 20.01.58.jpeg>)
 
-## 3) ##
+## 3) Diferencias entre un simulador y un emulador de redes ##
+
+En redes, tanto los simuladores como los emuladores son herramientas utilizadas para probar y analizar el comportamiento de infraestructuras de comunicación. Sin embargo, existen diferencias clave entre ambos:
+
+- Simulador de redes
+
+Un simulador es un software que imita el comportamiento de una red al modelar el tráfico, los dispositivos y los protocolos sin ejecutar el software real de los equipos de red. Un ejemplo para esta definición sería el software Cisco Packet Tracer, donde se caracteriza ya que se crea un entorno virtual donde los dispositivos de red están representados mediante modelos matemáticos. Asi tambien no ejecuta el sistema operativo real de los dispositivos, sino versiones simplificadas.
+Su uso es ideal para aprendizaje y pruebas teóricas de configuraciones de red ya que no requiere hardware específico, dado que simula el funcionamiento de los dispositivos.
+
+- Emulador de redes
+
+Un emulador recrea el entorno de red real permitiendo ejecutar el software de los dispositivos en una máquina virtual. Ejemplos de estos podrían ser los softwares GNS3 o CORE, donde sus características son que usa imágenes reales de sistemas operativos de routers y switches, como Cisco IOS. Tambien permite probar configuraciones en un entorno idéntico al de producción por lo que uede integrarse con redes reales para pruebas avanzadas, pero debido a esto es más demandante en términos de recursos computacionales, ya que ejecuta sistemas operativos completos.
+
+En resúmen, un simulador es útil para aprender sobre redes y probar configuraciones simples, mientras que un emulador permite replicar escenarios reales con mayor fidelidad, facilitando la implementación de soluciones en producción.
 
 ## 4)  Conectividad IPv4 entre todos los host ##
 
