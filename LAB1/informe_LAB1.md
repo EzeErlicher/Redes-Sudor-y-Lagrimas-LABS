@@ -163,7 +163,7 @@ IPv6 PC2:
 
 <div style="text-align: center;"> 
 
-## 6) Trafico ICMP entre clientes ##
+## 6) Trafico ICMPv4 entre clientes ##
 
 a) Las comunicaciones ARP que se observan son las utilizadas por los distintos dispositivos para conocer la dirección Mac de cada uno de los otros dispositivos. Al hacer ping desde H1 a H2, solo conocemos la dirección ip de H2. Se procede entonces a hacer una comunicación Broadcast a todos los host conectados al Switch, y solo responderá el que posee la dirección ip a la cual estamos haciendo ping, en este caso H2. Como se ve en la imagen, el mensaje pasa de H1 al router, del router al switch, y del switch a H2 y H3. Solamente responderá con su dirección Mac H2, que sería el mensaje que va primero de H2 al switch, y luego del switch al router. 
 
@@ -280,7 +280,7 @@ contraseñas
 ![alt text](image-2.png)
 
 
-## c) Conexión de 2 computadoras y testeo de conectividad
+## 2c) Conexión de 2 computadoras y testeo de conectividad
 
 Se conectan 2 computadoras al switch con Ubuntu OS mediante cables Ethernet (RJ45).Se configuraron las siguientes direcciones IP `192.168.1.12` y `192.168.1.11` respectivamente desde el admininistrador de red ethernet de cada laptop.
 
@@ -297,10 +297,29 @@ Una vez configuradas las IP's, se testeo la conectividad entre ambas mediante co
 ![alt text](image-10.png)
 
 
-## d) Configuración de un puerto en modo mirroring y monitoreo de tráfico
+## 2d) Configuración de un puerto en modo mirroring y monitoreo de tráfico
 
 
 Se establecen los puerto 3 y 9 como puertos source donde se conectan posteriormente las computadoras. El puerto a donde se conecta la computadora que va a interceptar el tráfico 
 es el 6
 
 ![alt text](image-4.png)
+
+## 3) Captura de tráfico entre computadoras ##
+
+Dada la configuración de mirroring del punto anterior, se ejecutan comandos ping entre las computadoras para iniciar tráfico ICMPv4 entre ambas. Dicho tráfico se analiza mediante la herramienta Wireshark. En las siguientes capturas, podemos apreciar los paquetes ARP e ICMPv4 que se describían en el ejercicio 6 de la parte 2 de este tp,así como también las direcciones de request y reply de los paquetes ICMP:
+
+
+Paquetes ARP:
+
+![alt text](<WhatsApp Image 2025-03-27 at 15.06.49.jpeg>)
+
+
+Paquetes ICMPv4 (Ping desde `192.168.1.12` a `192.168.1.11`)
+
+![alt text](image-16.png)
+
+Paquetes ICMPv4 (Ping desde `192.168.1.11` a `192.168.1.12`)
+
+![alt text](<WhatsApp Image 2025-03-27 at 20.06.57.jpeg>)
+
