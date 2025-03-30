@@ -72,7 +72,7 @@ Algunas de las características de este protocolo son las siguientes:
         Clase B (128.0.0.0 a 191.255.255.255): Para redes medianas.
 
         Clase C (192.0.0.0 a 223.255.255.255): Para redes más pequeñas.
-
+****
         Clase D (224.0.0.0 a 239.255.255.255): Para direcciones de multicast.
 
         Clase E (240.0.0.0 a 255.255.255.255): Reservado para investigaciones futuras.
@@ -87,7 +87,7 @@ Algunas de las características de este protocolo son las siguientes:
 
 ### IPv6 ###
 
-IPv6 es la evolución de IPv4, diseñado para resolver los problemas de agotamiento de direcciones y mejorar el rendimiento de la red. Mientras que IPv4 utiliza direcciones de 32 bits, IPv6 utiliza direcciones de 128 bits, lo que proporciona un espacio de direcciones casi ilimitado.ENtre las carácterísticas de este protocolo se puede mencionar
+IPv6 es la evolución de IPv4, diseñado para resolver los problemas de agotamiento de direcciones y mejorar el rendimiento de la red. Mientras que IPv4 utiliza direcciones de 32 bits, IPv6 utiliza direcciones de 128 bits, lo que proporciona un espacio de direcciones casi ilimitado. Entre las carácterísticas de este protocolo se puede mencionar:
   
     --Dirección de 128 bits: Una dirección IPv6 está compuesta por ocho bloques de cuatro dígitos hexadecimales (16 bits cada uno), separados por dos puntos, como en 2001:0db8:85a3:0000:0000:8a2e:0370:7334. Esto da lugar a un espacio de direcciones de 2^128 (aproximadamente 340 undecillones de direcciones), lo que es más que suficiente para satisfacer las necesidades de la red mundial durante siglos.
 
@@ -161,8 +161,6 @@ IPv6 PC2:
 ![alt text](<Screenshot from 2025-03-25 19-50-25.png>)
 
 
-<div style="text-align: center;"> 
-
 ## 6) Trafico ICMPv4 entre clientes ##
 
 a) Las comunicaciones ARP que se observan son las utilizadas por los distintos dispositivos para conocer la dirección Mac de cada uno de los otros dispositivos. Al hacer ping desde H1 a H2, solo conocemos la dirección ip de H2. Se procede entonces a hacer una comunicación Broadcast a todos los host conectados al Switch, y solo responderá el que posee la dirección ip a la cual estamos haciendo ping, en este caso H2. Como se ve en la imagen, el mensaje pasa de H1 al router, del router al switch, y del switch a H2 y H3. Solamente responderá con su dirección Mac H2, que sería el mensaje que va primero de H2 al switch, y luego del switch al router. 
@@ -180,9 +178,12 @@ Dinámicamente - las rutas remotas se aprenden automáticamente mediante un prot
 
 d) Lo utilizamos para dirigir el tráfico de datos desde el dispositivo de origen hasta el de destino dentro de la red. Opera en la capa de enlace de datos del modelo OSI razón por la cual para establecer comunicaciones entre sí lo hace utilizando direcciones mac y no necesita de direcciones IP en sus interfaces.
 
-e) Contiene la dirección ip y mac del router. Dispositivo con el que se comunicó para poder enviar el mensaje a h2.![alt text](image-13.png)
+e) Contiene la dirección ip y mac del router. Dispositivo con el que se comunicó para poder enviar el mensaje a h2.
+
+![alt text](image-13.png)
 
 f) La tabla arp de h3 se encuentra vacía ya que aún no ha iniciado comunicación alguna.
+
 ![alt text](image-14.png)
 
 g) Contiene las direcciones ip y mac de h1 y h2 junto al tiempo en minutos que cargó su información.
@@ -192,9 +193,25 @@ h) Si los datos encapsulados son un paquete broadcast IPv4, esto significa que e
 
 i) Una trama de multicast de Ethernet es recibida y procesada por un grupo de dispositivos en la LAN de Ethernet que pertenecen al mismo grupo de multicast. Si los datos encapsulados son un paquete de multicast IP, a los dispositivos que pertenecen a un grupo de multicast se les asigna una dirección IP de grupo de multicast. El rango de direcciones de multicast IPv4 es 224.0.0.0 a 239.255.255.255.
 
+## 7) Trafico ICMPv6 entre clientes ##
 
+a)
+
+![alt text](image-18.png)
+
+b) y c) NDP es un protocolo utilizado en redes IPv6, que reemplaza al protocolo ARP (Address Resolution Protocol) que se emplea en redes IPv4. Entre las funciones que lleva a cabo, se incluyen el descubrimiento de vecinos (ND: Neighbour Discovery) para obtener las direcciones MAC de otros dispositivos, la autoconfiguración de direcciones mediante Stateless Address Autoconfiguration (SLAAC), y la detección de duplicados de direcciones (DAD) para evitar conflictos de direcciones. Además, permite el descubrimiento de routers en la red mediante los mensajes de Router Solicitation y Router Advertisement, y la redirección de tráfico hacia routers más eficientes usando mensajes de Redirect. Finalmente, NDP gestiona la monitorización de la conectividad entre dispositivos mediante Neighbor Unreachability Detection (NUD), lo que permite identificar dispositivos inalcanzables y mantener actualizada la tabla de vecinos.
+
+d) En IPv6, el mensaje de broadcast (transmisión a todos los dispositivos de la red) se elimina y se reemplaza por los mensajes de multicast.
+<br>Multicast: En lugar de enviar un mensaje a todos los dispositivos de la red, este mensaje permite enviar datos solo a un grupo específico de dispositivos que se han inscrito para recibir esos mensajes. Los dispositivos que deseen recibir un mensaje multicast deben unirse a un grupo (llamado de multicast justamente). Esto es más eficiente porque solo los dispositivos interesados reciben el tráfico, en lugar de todos los dispositivos de la red. Las direcciones multicast en IPv6 comienzan con el prefijo FF00::/8.
+
+e) Local link address (LLA): Los LLA se utilizan para comunicarse con otros dispositivos en el mismo enlace local. Con IPv6, el término “enlace” hace referencia a una subred. Las LLA se limitan a un único enlace. Su exclusividad se debe confirmar solo para ese enlace, ya que no se pueden enrutar más allá del enlace. En otras palabras, los routers no reenvían paquetes con una dirección de origen o de destino link-local. Utilizan el prefijo FE80::/10. 2 computadoras conectadas a la misma LAN pueden usar estas direcciones para comunicarse.
+<br>Unique-Local (Unique Local Addresses - ULA): Estas direcciones son válidas dentro de una organización o red privada (También pueden ser utilizadas para conexiones entre diferentes redes privadas), pero no deben ser enrutadas globalmente en la Internet. Son similares a las direcciones privadas en IPv4, como las direcciones 192.168.x.x o 10.x.x.x . Se utilizan en redes privadas para permitir la comunicación entre dispositivos dentro de la misma organización o red sin la necesidad de direcciones globales. 
+<br>Global unicast address (GUA) : Estas direcciones son similares a las direcciones IPv4 públicas. Estas son direcciones son globalmente exclusivas y enrutables por medio de Internet. Las GUA pueden configurarse estáticamente o asignarse dinámicamente. El prefijo para este tipo de direcciones es 2000::/3. Para enviar un mensaje entre 2 teléfonos celulares conectados en distintas redes (por ejemplo uno en ciudad universitaria y otro en el patio olmos) se usa este tipo de direcciones.
+
+<div style="text-align: center;"> 
 
 # Parte II - Configuración y Análisis de tráfico IPv4/IPv6 #
+
 </div>
 
 ## 1) Descripción del switch Cisco Cisco Catalyst series 2950 ##
@@ -209,7 +226,7 @@ Imagen del switch utilizado en esta parte del práctico:
 
 El Switch utilizado para esta parte del práctico es el Cisco Catalyst series 2950 (versión específica: WS-C2950-24), el cual presenta las siguientes características:
 
-### ** Especificaciones Técnicas ** ###
+### **Especificaciones Técnicas** ###
 
 -- Número de Puertos: 24 puertos 10/100 Mbps Ethernet.
 
@@ -223,7 +240,7 @@ El Switch utilizado para esta parte del práctico es el Cisco Catalyst series 29
 
 -- Fuente de Alimentación: 100-240 VAC, 50-60 Hz.
 
-### ** Anatomía física del Switch ** ###
+### **Anatomía física del Switch** ###
 
 #### Panel Frontal: ####
 
@@ -245,7 +262,7 @@ El Switch utilizado para esta parte del práctico es el Cisco Catalyst series 29
 
 --Ventilación: Ranuras para la ventilación adecuada del dispositivo
 
-### ** Interfaces ** ###
+### **Interfaces** ###
 --**Puertos Ethernet:** Cada puerto puede ser utilizado para conectar end devices tales como computadoras, impresoras o otros switches.
 
 --**Puerto de Consola:** Un puerto RJ-45 para la gestión y configuración del switch a través de una conexión serial.
