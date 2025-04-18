@@ -126,3 +126,14 @@ En esta última prueba se ejecutó el comando `iperf3 -c 192.168.1.20` que al ig
 ![alt text](<img/iperf-client-7-server_change.png>)
 
 Dado los resultados obtenidos se concluye que la conexión es exitosa y que esta correctamente establecida.
+
+
+---
+
+## 5)
+
+### Prueba 1:
+![Prueba 1 - Servidor remoto](<img/Imagen de WhatsApp 2025-04-14 a las 17.07.59_46d3976b.jpg>)
+
+### Prueba 2:
+![Prueba 2 - Servidor remoto](<img/Imagen de WhatsApp 2025-04-14 a las 17.07.59_109a5f85.jpg>)
