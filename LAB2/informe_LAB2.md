@@ -129,7 +129,12 @@ Dado los resultados obtenidos se concluye que la conexión es exitosa y que esta
 
 
 ---
+## 4)
 
+Los anchos de banda promedio en las pruebas 2 y 4 eran de 1.05Mb/seg mientras que en las demas pruebas rondaban alrededor de los 95Mb/seg. Mientras udp tiene un bitrate limitado tcp aprovecha toda la capacidad del canal.
+El tamaño de los paquetes es de 1400 bytes. El resultado de la prueba también muestra que el jitter fue aproximadamente 0.099 ms lo cual indica una entrega bastante regular y estable. Además, no se registraron pérdidas de paquetes ni en el envío ni en la recepción.
+
+---
 ## 5)
 
 ### Prueba 1:
