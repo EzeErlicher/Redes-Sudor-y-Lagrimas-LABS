@@ -131,8 +131,8 @@ Dado los resultados obtenidos se concluye que la conexión es exitosa y que esta
 ---
 ## 4)
 
-Los anchos de banda promedio en las pruebas 2 y 4 eran de 1.05Mb/seg mientras que en las demas pruebas rondaban alrededor de los 95Mb/seg. Mientras udp tiene un bitrate limitado tcp aprovecha toda la capacidad del canal.
-El tamaño de los paquetes es de 1400 bytes. El resultado de la prueba también muestra que el jitter fue aproximadamente 0.099 ms lo cual indica una entrega bastante regular y estable. Además, no se registraron pérdidas de paquetes ni en el envío ni en la recepción.
+Los anchos de banda promedio en las pruebas 2 y 4 eran de 1.05Mb/seg mientras que en las demas pruebas rondaban alrededor de los 95Mb/seg. Mientras que UDP tiene un bitrate limitado, TCP aprovecha toda la capacidad del canal.
+<br>El tamaño de los paquetes es de 1400 bytes. El resultado de la prueba también muestra que el jitter fue aproximadamente 0.099 ms lo cual indica una entrega bastante regular y estable. Además, no se registraron pérdidas de paquetes ni en el envío ni en la recepción.
 
 ---
 ## 5)
@@ -142,3 +142,7 @@ El tamaño de los paquetes es de 1400 bytes. El resultado de la prueba también 
 
 ### Prueba 2:
 ![Prueba 2 - Servidor remoto](<img/Imagen de WhatsApp 2025-04-14 a las 17.07.59_109a5f85.jpg>)
+
+Se utiliza iperf3 para realizar dos pruebas de 10 segundos cada una con el protocolo TCP al servidor dispuesto durante la clase (34.176.225.102:2222).
+<br>En estas se observaron bitrates promedio de aproximadamente 45/46 Mb/s, lo cual representa una caída significativa frente a los resultados del punto 3 (red local), pero es esperable debido a la mayor latencia y distancia física que implica la conexión por Internet.
+<br>También podemos apreciar como la utilización de CPU fue baja en ambas partes (local y remota), demostrando que no hubo cuello de botella a nivel de procesamiento.
