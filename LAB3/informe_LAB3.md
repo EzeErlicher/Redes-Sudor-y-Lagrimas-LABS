@@ -157,7 +157,7 @@ b) Para configurar una ruta estática predeterminada en el router R1 e incluirla
 
 ![alt text](image-4.png)
 
-10) Impacto de la caída en una de las interfaces de R2:
+## 10) Impacto de la caída en una de las interfaces de R2:
 
 Al caerse una de las interfaces, el protocolo OSPF “aprende” de esa modificación y actualiza las tablas de enrutamiento que correspondan. Por ejemplo, la tabla de enrutamiento de R3 con todas las interfaces de R2 levantadas es 
 ![alt text](image-5.png)
