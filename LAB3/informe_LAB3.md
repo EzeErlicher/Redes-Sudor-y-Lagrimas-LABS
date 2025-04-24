@@ -128,3 +128,40 @@ Hay 5 mensajes OSPF que se pueden enviar por la red (en orden):
 ![alt text](<Screenshot from 2025-04-23 19-33-52.png>)
 
   **Figura 20:** Mensaje OSPF Link State Acknowledgment
+
+
+## 8) Costo de ospf:
+El camino sin modificación de los costos desde H1 a H4 es:
+![alt text](image.png)
+
+Al aumentar el costo del camino entre R3 y R4 forzamos que vaya por R5
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+Y la vuelta de H4 a H2:
+![alt text](image-3.png)
+
+## 9) Redistribuir una ruta OSPF predeterminada:
+
+a) Para configurar una dirección de loopback en R1 para simular un enlace a un proveedor de servicios de Internet (ISP) corrimos los siguientes códigos:
+
+Router(config)# interface loopback0
+
+Router(config-if)# ip address 127.0.0.1 255.0.0.0
+
+Router(config-if)# no shutdown
+
+Router(config-if)# exit
+
+b) Para configurar una ruta estática predeterminada en el router R1 e incluirla en las actualizaciones de OSPF, lanzamos los siguientes códigos en el CLI del router 1
+
+![alt text](image-4.png)
+
+10) Impacto de la caída en una de las interfaces de R2:
+
+Al caerse una de las interfaces, el protocolo OSPF “aprende” de esa modificación y actualiza las tablas de enrutamiento que correspondan. Por ejemplo, la tabla de enrutamiento de R3 con todas las interfaces de R2 levantadas es 
+![alt text](image-5.png)
+
+Al bajar la interfaz R2-S1, el router R3 actualiza automáticamente su tabla de enrutamiento quedando de la siguiente manera
+
+![alt text](image-6.png)
