@@ -285,3 +285,21 @@ Al bajar la interfaz R2-S1, el router R3 actualiza automáticamente su tabla de 
   ![alt text](<img/image-6.png>)
 
 </div>
+
+## 11) Es lo mismo la tabla RIB (Routing Information Base) y FIB (Forwarding Information Base)?:
+
+La respuesta es no, dado que la tabla RIB no es lo mismo que la tabla FIB aunque están estrechamente relacionadas y ambas son fundamentales para el funcionamiento del enrutamiento.
+
+Para la tabla RIB podemos decir que es una base de datos lógica que contiene todas las rutas aprendidas por el router a través de distintos protocolos de enrutamiento (como OSPF, RIP, BGP), rutas estáticas y rutas conectadas directamente. Mantiene múltiples rutas hacia un mismo destino, incluso si no todas serán utilizadas y OSPF y otros protocolos escriben sus rutas en esta tabla.
+
+En cambio la tabla FIB, es la tabla que realmente se usa para reenviar paquetes en tiempo real y contiene solo las mejores rutas seleccionadas por la RIB para cada destino. Está optimizada para el rendimiento, y generalmente es gestionada por el hardware del router (por ejemplo, ASICs en routers Cisco).
+
+Como ejemplo, utilizaremos el Router 3 de la simulación para ejecutar el comando 'show ip route' y ver las tablas como justificación.
+
+<div align="center">
+
+  ![alt text](<img/Screenshot from 2025-04-25 12-02-58.png>)
+
+</div>
+
+Aunque 'show ip route' muestra la RIB, también indica qué ruta está siendo usada activamente, es decir, lo que terminó en la FIB. En la mayoría de los entornos educativos, la FIB es simplemente el subconjunto activo de la RIB.
