@@ -1,5 +1,37 @@
 # Redes-before MD
 
+## 1)
+
+**Explicación de OSPF:**
+
+OSPF (Open Shortest Path First) es un protocolo de enrutamiento dinámico interior (IGP) basado en el algoritmo de estado de enlace (link-state), que permite a los routers intercambiar información sobre la topología de la red para construir una visión completa del entorno. OSPF utiliza el algoritmo de Dijkstra para calcular la ruta más corta (menor costo) desde un router a todos los demás dispositivos en la red.
+
+OSPF es un protocolo estándar abierto, definido por la IETF (RFC 2328), y soporta características avanzadas como la división de la red en áreas jerárquicas (ej: backbone y áreas internas), balanceo de carga sobre múltiples rutas, detección rápida de cambios en la red y soporte para autenticación y VLSM (subredes de longitud variable).
+
+**Clases de redes:**
+
+En el direccionamiento IPv4 tradicional, se usaban clases de red para dividir el espacio de direcciones IP. Aunque el uso actual favorece CIDR (Classless Inter-Domain Routing), es útil entender las clases para diseñar esquemas de direccionamiento como pide el TP.
+
+| Clase | Rango de IPs                | Bits de Red | Bits de Host | Uso común                              |
+| ----- | --------------------------- | ----------- | ------------ | -------------------------------------- |
+| A     | 0.0.0.0 - 127.255.255.255   | 8           | 24           | Grandes redes                          |
+| B     | 128.0.0.0 - 191.255.255.255 | 16          | 16           | Redes medianas                         |
+| C     | 192.0.0.0 - 223.255.255.255 | 24          | 8            | Pequeñas redes o enlaces punto a punto |
+
+En este trabajo, se propone usar clase A o B para redes de hosts (mayor cantidad de dispositivos) y una clase C para los enlaces entre routers (usualmente punto a punto).
+
+**Algoritmo de "shortest path":**
+
+El algoritmo de Dijkstra, también conocido como SPF (Shortest Path First), es el más utilizado en OSPF. Este algoritmo asigna un costo a cada enlace (puede estar basado en ancho de banda, latencia, etc.), luego calcula la ruta de menor costo acumulado desde el router origen a todos los destinos y por último genera una tabla de rutas óptimas que el router utilizará para reenviar paquetes.
+
+**Aplicación de la teoría de grafos:**
+
+La teoría de grafos es fundamental para entender cómo funcionan las redes modernas, ya que una red puede modelarse como un grafo dirigido o no dirigido, donde los nodos representan routers u otros dispositivos y las aristas representan enlaces físicos o lógicos, con un peso/costo asociado.
+
+En OSPF, cada router construye su propia visión del grafo completo usando información del protocolo (LSAs – Link State Advertisements) donde luego, con este grafo, el protocolo OSPF ejecuta el algoritmo de Dijkstra para construir el SPT (Shortest Path Tree) con el propio router como raíz y se deriva la tabla de enrutamiento que define hacia dónde reenviar paquetes para cada destino.
+
+De esta manera, la teoría de grafos no solo sirve para representar la red, sino que es clave en la operación del protocolo OSPF al construir rutas eficientes y adaptarse rápidamente a cambios topológicos.
+
 ## 2)
 
 La topología sobre la cual se trabajó fue la siguiente:  
@@ -203,7 +235,7 @@ Al aumentar el costo del camino entre R3 y R4 forzamos que vaya por R5
 <div align="center">
 
   ![alt text](<img/image-1.png>)
-  
+
   ![alt text](<img/image-2.png>)
 
 </div>
