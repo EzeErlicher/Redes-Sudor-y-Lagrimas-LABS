@@ -220,7 +220,61 @@ Hay 5 mensajes OSPF que se pueden enviar por la red (en orden):
 
 </div>
 
-## 8) Costo de ospf:
+## 5) LSBD
+
+  ### 1) 
+  
+<div align="center"> 
+
+![alt text](img/image-7.png) </div>
+
+<div align="center"> 
+
+![alt text](img/image-8.png) </div>
+
+<div align="center"> 
+
+![alt text](img/image-9.png) </div>
+
+<div align="center"> 
+
+![alt text](img/image-10.png) </div>
+
+<div align="center"> 
+
+![alt text](img/image-11.png) </div>
+
+### 2) 
+
+Router 0:
+<div align="center"> 
+
+![alt text](img/image-12.png) </div>
+
+Router 1:
+<div align="center"> 
+
+![alt text](img/image-13.png) </div>
+
+Router 2:
+<div align="center"> 
+
+![alt text](img/image-14.png) </div>
+
+Router 3:
+<div align="center"> 
+
+![alt text](img/image-15.png) </div>
+
+Router 4:
+<div align="center"> 
+
+![alt text](img/image-16.png) </div>
+
+## 6)
+
+
+## 8) Costo de OSPF:
 
 El camino sin modificación de los costos desde H1 a H4 es:
 
