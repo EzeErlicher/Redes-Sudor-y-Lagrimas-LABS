@@ -4,14 +4,23 @@
 
 La topología sobre la cual se trabajó fue la siguiente:  
 
-![alt text](<Screenshot from 2025-04-23 19-13-30.png>)
-**Figura 1: Red**
+<div align="center">
+
+  ![alt text](<img/Screenshot from 2025-04-23 19-13-30.png>)
+
+  **Figura 1: Red**
+
+</div>
 
 A continuación se muestra el esquema de direccionamiento IP de la red. Se utilizó una segmentación clase A para las conexiones PC-Routers (subnet mask de 8 bits) y una segmentación clase C para las conexiones entre routers (subnet mask de 24 bits).  
 
-![alt text](<Screenshot from 2025-04-23 19-14-34.png>)
+<div align="center">
 
-**Figura 2: Tabla de direccionamiento IP**
+  ![alt text](<img/Screenshot from 2025-04-23 19-14-34.png>)
+
+  **Figura 2: Tabla de direccionamiento IP**
+
+</div>
 
 ## 3)
 
@@ -19,53 +28,73 @@ En la siguiente secuencia de capturas, se testea la conectividad entre todas las
 
 ### PC0
 
-![alt text](<Screenshot from 2025-04-23 19-16-19.png>)
+<div align="center">
 
-**Figura 3:** Testeo de conectividad hacia las otras computadoras en la misma red que PC0  
+  ![alt text](<img/Screenshot from 2025-04-23 19-16-19.png>)
 
-![alt text](<Screenshot from 2025-04-23 19-18-29.png>)
+  **Figura 3:** Testeo de conectividad hacia las otras computadoras en la misma red que PC0
 
-**Figura 4:** Testeo de conectividad hacia las computadoras en las redes 15.0.0.0/8 y 16.0.0.0/8
+  ![alt text](<img/Screenshot from 2025-04-23 19-18-29.png>)
+
+  **Figura 4:** Testeo de conectividad hacia las computadoras en las redes 15.0.0.0/8 y 16.0.0.0/8
+
+</div>
 
 ### PC1
 
-![alt text](<Screenshot from 2025-04-23 19-19-31.png>)
+<div align="center">
 
-**Figura 5:** Testeo de conectividad hacia las otras computadoras en la misma red que PC1
+  ![alt text](<img/Screenshot from 2025-04-23 19-19-31.png>)
 
-![alt text](<Screenshot from 2025-04-23 19-20-03.png>)
+  **Figura 5:** Testeo de conectividad hacia las otras computadoras en la misma red que PC1
 
-**Figura 6:** Testeo de conectividad hacia las computadoras en las redes 15.0.0.0/8 y 16.0.0.0/8
+  ![alt text](<img/Screenshot from 2025-04-23 19-20-03.png>)
+
+  **Figura 6:** Testeo de conectividad hacia las computadoras en las redes 15.0.0.0/8 y 16.0.0.0/8
+
+</div>
 
 ### PC2
 
-![alt text](<Screenshot from 2025-04-23 19-22-22.png>)
+<div align="center">
 
-**Figura 7:** Testeo de conectividad hacia las otras computadoras en la misma red que PC2  
+  ![alt text](<img/Screenshot from 2025-04-23 19-22-22.png>)
 
-![alt text](<Screenshot from 2025-04-23 19-23-19.png>)
+  **Figura 7:** Testeo de conectividad hacia las otras computadoras en la misma red que PC2  
 
-**Figura 8:** Testeo de conectividad hacia las computadoras en las redes 15.0.0.0/8 y 16.0.0.0/8
+  ![alt text](<img/Screenshot from 2025-04-23 19-23-19.png>)
+
+  **Figura 8:** Testeo de conectividad hacia las computadoras en las redes 15.0.0.0/8 y 16.0.0.0/8
+
+</div>
 
 ### PC3
 
-![alt text](<Screenshot from 2025-04-23 19-25-27.png>)
+<div align="center">
 
-**Figura 9:** Testeo de conectividad hacia las computadoras en la red 14.0.0.0/8 
+  ![alt text](<img/Screenshot from 2025-04-23 19-25-27.png>)
 
-![alt text](<Screenshot from 2025-04-23 19-26-03.png>)
+  **Figura 9:** Testeo de conectividad hacia las computadoras en la red 14.0.0.0/8 
 
-**Figura 10:** Testeo de conectividad hacia la computadora en la red 16.0.0.0/8 (PC4)
+  ![alt text](<img/Screenshot from 2025-04-23 19-26-03.png>)
+
+  **Figura 10:** Testeo de conectividad hacia la computadora en la red 16.0.0.0/8 (PC4)
+
+</div>
 
 ### PC4
 
-![alt text](<Screenshot from 2025-04-23 19-27-59.png>)
+<div align="center">
 
-**Figura 11:** Testeo de conectividad hacia las computadoras en la red 14.0.0.0/8  
+  ![alt text](<img/Screenshot from 2025-04-23 19-27-59.png>)
 
-![alt text](<Screenshot from 2025-04-23 19-28-43.png>)
+  **Figura 11:** Testeo de conectividad hacia las computadoras en la red 14.0.0.0/8  
 
-**Figura 12:** Testeo de conectividad hacia la computadora en la red 15.0.0.0/8 (PC3)
+  ![alt text](<img/Screenshot from 2025-04-23 19-28-43.png>)
+
+  **Figura 12:** Testeo de conectividad hacia la computadora en la red 15.0.0.0/8 (PC3)
+
+</div>
 
 ---
 
@@ -73,35 +102,53 @@ Se puede verificar en las siguientes imágenes que las tablas de routing poseen 
 
 ### Router0
 
-![alt text](<Screenshot from 2025-04-23 19-29-19.png>)
+<div align="center">
 
-**Figura 13:** Rutas OSPF del Router0
+  ![alt text](<img/Screenshot from 2025-04-23 19-29-19.png>)
+
+  **Figura 13:** Rutas OSPF del Router0
+
+</div>
 
 ### Router1
 
-![alt text](<Screenshot from 2025-04-23 19-29-56.png>)
+<div align="center">
 
-**Figura 14:** Rutas OSPF del Router1
+  ![alt text](<img/Screenshot from 2025-04-23 19-29-56.png>)
 
+  **Figura 14:** Rutas OSPF del Router1
+
+</div>
 
 ### Router2
 
+<div align="center">
 
-![alt text](<Screenshot from 2025-04-23 19-30-49.png>)
+  ![alt text](<img/Screenshot from 2025-04-23 19-30-49.png>)
 
-**Figura 15:** Rutas OSPF del Router2
+  **Figura 15:** Rutas OSPF del Router2
+
+</div>
 
 ### Router3
 
-![alt text](<Screenshot from 2025-04-23 19-31-13.png>)
+<div align="center">
 
-**Figura 16:** Rutas OSPF del Router3
+  ![alt text](<img/Screenshot from 2025-04-23 19-31-13.png>)
+
+  **Figura 16:** Rutas OSPF del Router3
+
+</div>
 
 ### Router4
 
-![alt text](<Screenshot from 2025-04-23 19-32-25.png>)
+<div align="center">
 
-**Figura 17:** Rutas OSPF del Router4
+  ![alt text](<img/Screenshot from 2025-04-23 19-32-25.png>)
+
+  **Figura 17:** Rutas OSPF del Router4
+
+</div>
 
 ## 4)
 
@@ -109,9 +156,13 @@ Hay 5 mensajes OSPF que se pueden enviar por la red (en orden):
 
 **Hello**: Permite descubrir y mantener relaciones con routers vecinos. Se envían de manera periódica. Si los paquetes Hello se detienen, el vecino se considera inactivo después de que expire el Temporizador de inactividad.
 
-![alt text](<Screenshot from 2025-04-23 19-32-46.png>)
+<div align="center">
+
+  ![alt text](<img/Screenshot from 2025-04-23 19-32-46.png>)
 
   **Figura 18:** Mensaje OSPF Hello
+
+</div>
 
 **Database Description (DBD)**: Resumen de los contenidos de la LSDB (link-state database) del router. Se utiliza para determinar si los vecinos están sincronizados.
 
@@ -119,27 +170,51 @@ Hay 5 mensajes OSPF que se pueden enviar por la red (en orden):
 
 **Link State Update (LSU)**: Contiene uno o más Link State Advertisements (LSAs). Contiene información topológica tales como enlaces del router, redes, costos, etc. Puede enviarse como respuesta a los LSA o cuando se produce un cambio en la red.
 
-![alt text](<Screenshot from 2025-04-23 19-33-17.png>)
+<div align="center">
+
+  ![alt text](<img/Screenshot from 2025-04-23 19-33-17.png>)
 
   **Figura 19:** Mensaje OSPF Link State Update
 
+</div>
+
 **Link State Acknowledgment (LSA)**: Enviado para confirmar la recepción de LSUs.
 
-![alt text](<Screenshot from 2025-04-23 19-33-52.png>)
+<div align="center">
+
+  ![alt text](<img/Screenshot from 2025-04-23 19-33-52.png>)
 
   **Figura 20:** Mensaje OSPF Link State Acknowledgment
 
+</div>
 
 ## 8) Costo de ospf:
+
 El camino sin modificación de los costos desde H1 a H4 es:
-![alt text](image.png)
+
+<div align="center">
+
+  ![alt text](<img/image.png>)
+
+</div>
 
 Al aumentar el costo del camino entre R3 y R4 forzamos que vaya por R5
-![alt text](image-1.png)
-![alt text](image-2.png)
+
+<div align="center">
+
+  ![alt text](<img/image-1.png>)
+  
+  ![alt text](<img/image-2.png>)
+
+</div>
 
 Y la vuelta de H4 a H2:
-![alt text](image-3.png)
+
+<div align="center">
+
+  ![alt text](<img/image-3.png>)
+
+</div>
 
 ## 9) Redistribuir una ruta OSPF predeterminada:
 
@@ -155,13 +230,26 @@ Router(config-if)# exit
 
 b) Para configurar una ruta estática predeterminada en el router R1 e incluirla en las actualizaciones de OSPF, lanzamos los siguientes códigos en el CLI del router 1
 
-![alt text](image-4.png)
+<div align="center">
+
+  ![alt text](<img/image-4.png>)
+
+</div>
 
 ## 10) Impacto de la caída en una de las interfaces de R2:
 
-Al caerse una de las interfaces, el protocolo OSPF “aprende” de esa modificación y actualiza las tablas de enrutamiento que correspondan. Por ejemplo, la tabla de enrutamiento de R3 con todas las interfaces de R2 levantadas es 
-![alt text](image-5.png)
+Al caerse una de las interfaces, el protocolo OSPF “aprende” de esa modificación y actualiza las tablas de enrutamiento que correspondan. Por ejemplo, la tabla de enrutamiento de R3 con todas las interfaces de R2 levantadas es
+
+<div align="center">
+
+  ![alt text](<img/image-5.png>)
+
+</div>
 
 Al bajar la interfaz R2-S1, el router R3 actualiza automáticamente su tabla de enrutamiento quedando de la siguiente manera
 
-![alt text](image-6.png)
+<div align="center">
+
+  ![alt text](<img/image-6.png>)
+
+</div>
