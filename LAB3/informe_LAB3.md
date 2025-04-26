@@ -246,33 +246,58 @@ Hay 5 mensajes OSPF que se pueden enviar por la red (en orden):
 
 ### 2) 
 
-Router 0:
+**Router 0:**
 <div align="center"> 
 
 ![alt text](img/image-12.png) </div>
 
-Router 1:
+**Router 1:**
 <div align="center"> 
 
 ![alt text](img/image-13.png) </div>
 
-Router 2:
+**Router 2:**
 <div align="center"> 
 
 ![alt text](img/image-14.png) </div>
 
-Router 3:
+**Router 3:**
 <div align="center"> 
 
 ![alt text](img/image-15.png) </div>
 
-Router 4:
+**Router 4:**
 <div align="center"> 
 
 ![alt text](img/image-16.png) </div>
 
-## 6)
+## 6) Areas OSPF
+<div align="center"> 
 
+![alt text](img/image-17.png) </div>
+<div align="center"> 
+
+![alt text](img/image-18.png) </div>
+<div align="center"> 
+
+![alt text](img/image-19.png)
+![alt text](img/image-20.png) </div>
+<div align="center"> 
+
+![alt text](img/image-21.png) </div>
+<div align="center"> 
+
+![alt text](img/image-22.png) </div>
+
+## 7)
+a)
+<div align="center"> 
+
+![alt text](img/image-23.png) </div>
+b)
+<div align="center"> 
+
+![alt text](img/image-24.png) </div>
 
 ## 8) Costo de OSPF:
 
