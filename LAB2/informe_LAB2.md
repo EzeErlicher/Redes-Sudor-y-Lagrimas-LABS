@@ -1,3 +1,24 @@
+<div style="text-align: center;">
+ 
+
+# Trabajo Práctico N°2 Redes de Computadoras,FCEFyN-UNC #
+## Fecha de entrega: 17/04/2025 ##
+
+</div>
+
+## Profesores: ##
+- Santiago Martin Henn
+- Francisco Nicolas Oliva Cuneo
+
+## Nombre del Grupo: ##
+ **“Redes,Sudor y Lágrimas”** 
+
+## Integrantes: ##
+- Badariotti, Juan Miguel - 42260003
+- Cáceres, Juan Manuel - 41411969
+- Erlicher, Ezequiel - 42051917
+- Dallari, Giuliano - 42642389
+---
 
 ## 1)
 

@@ -1,6 +1,28 @@
-# Redes-before MD
+<div style="text-align: center;">
+ 
 
-## 1)
+# Trabajo Práctico N°3 Redes de Computadoras,FCEFyN-UNC #
+## Fecha de entrega: 24/04/2025 ##
+
+</div>
+
+
+
+## Profesores: ##
+- Santiago Martin Henn
+- Francisco Nicolas Oliva Cuneo
+
+## Nombre del Grupo: ##
+ **“Redes,Sudor y Lágrimas”** 
+
+## Integrantes: ##
+- Badariotti, Juan Miguel - 42260003
+- Cáceres, Juan Manuel - 41411969
+- Erlicher, Ezequiel - 42051917
+- Dallari, Giuliano - 42642389
+---
+
+## 1) Introducción teórica
 
 **Explicación de OSPF:**
 
