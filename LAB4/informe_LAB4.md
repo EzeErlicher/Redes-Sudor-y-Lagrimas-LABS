@@ -62,7 +62,7 @@ Tambien podemos visualizar la información de los peers (pares de conexión BGP)
 ![alt text](image-1.png)
 
 
-Tambien hay paginas como  que nos permiten visualizar la siguiente informacion:
+Tambien hay paginas como ipinfo.io que nos permiten visualizar la siguiente informacion:
 ![alt text](image-2.png)
 
 ![alt text](image-3.png)
