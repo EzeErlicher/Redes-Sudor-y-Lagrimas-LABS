@@ -75,6 +75,11 @@ Se construyo la siguiente topología conformada por dos AS en Packet Tracer: 650
 ![alt text](Network_topology.jpeg)
 
 
+La tabla de red queda definida de esta manera:
+
+![alt text](<Tabla de la red.png>)
+
+
 Se establecen las rutas BGP en ambos routers con los siguientes comandos:
 
 `router bgp [AS_NAME]`
@@ -85,6 +90,8 @@ Se establecen las rutas BGP en ambos routers con los siguientes comandos:
 
 `network [network_address] mask [mask]`
 
+ACLARACIÓN: Packet tracer no permite configurar rutas IPv6 para BGP, por lo tanto en este apartado solo se trabaja con IPv4. Mas adelante,patrabajar con redes IPv6, se usaron redes estáticas o OSPF
+
 con la ayuda del comando `show ip bgp summary`, se verifica que se hallan establecido correctamente:
 
 ![alt text](<summary BGP Router 0.jpeg>)
@@ -92,9 +99,108 @@ con la ayuda del comando `show ip bgp summary`, se verifica que se hallan establ
 ![alt text](<summary BGP Router 1.jpeg>)
 
 
-Testeo de conectividad de PC1 a las PCs del AS 65002
+Una vez configurado el protocolo BGP en los routers, se procede a configurar las direcciones IPv4 e IPv6 según se definía anteriormente en la tabla, para luego  testear la conectividad entre todas las PCs:
+
+
+**Testeo de conectividad de PC0 a las PCs del AS 65002**
+
+![alt text](<Ping PC0 a PC2 y PC3-1.jpeg>)
+
+
+**Testeo de conectividad de PC1 a las PCs del AS 65002**
+
 ![alt text](<ping  PC1 a PC2 y PC3.jpeg>)
 
-Testeo de conectividad de PC2 a las PCs del AS 65001
+
+**Testeo de conectividad de PC2 a las PCs del AS 65001**
+
 ![alt text](<Ping PC2 a PC0 y PC1.jpeg>)
 
+
+
+**Testeo de conectividad de PC3 a las PCs del AS 65001**
+
+![alt text](<Ping PC3 a PC0 y PC1-1.jpeg>)
+
+
+
+
+### Simular tráfico en la red. Apagar y encender alguno de los routers, y analizar el tráfico visualizado ###
+
+Se observa un único paquete BGP cuando se apaga el router 0, seguidos de varios paquetes TCP
+que se emiten como consecuencia del enlace interrumpido:
+
+![alt text](simulation_shuting_down_router_0.jpeg)
+
+
+
+Luego, al apagar y encender el router:
+
+![alt text](<simulation turning router 0 back on.jpeg>)
+
+ Se observa el intercambio de paquetes BGP OPEN, luego KEEPALIVEs, posteriormente  UPDATES y luego solo se siguen comunicando con KEEPALIVEs  indefinidamente.
+
+
+### Agregado de un nuevo host a AS65001 ###
+
+Se agregó un Router2 a AS65001 junto con PC4 conectada mediante un switch a dicho Host de la siguiente manera:
+
+![alt text](AS_65001_con_nuevo_host.jpeg)
+
+Por lo tanto, a la tabla de la red original se le añaden estas nuevas entradas:
+
+![alt text](Nuevas_entradas_en_la_tabla.jpeg)
+
+Se configuraron rutas estáticas IPv4 e IPv6, usando los comandos de configuración global `ip route` y `ipv6 route` tanto en el router 2 como en el router 0 y 1, para que de esta manera, PC4 pudiera comunicarse con el resto de las PCs, a continuación se comprueba la conectividad:
+
+
+
+**Testeo de la conectividad de PC4 al resto de los host en AS65001**:
+
+![alt text](<Ping PC4 a PC0 y PC1.jpeg>)
+
+![alt text](<Ping Ipv6 PC4 a PC0 y PC1.jpeg>)
+
+
+**Testeo de la conectividad de PC4 a los host en AS65002**:
+
+![alt text](<Ping PC0 a PC2 y PC3-2.jpeg>)
+
+![alt text](<Ping Ipv6 PC4 a PC2 y PC3.jpeg>)
+
+
+### Redistribución de OSPF en BGP ###
+
+Se procede, en primera instancia, a eliminar todas las rutas estáticas establecidas anteriormente (ya que dichas rutas serán aprendidas gracias al trabajo conjunto de los protocolos OSPF y BGP). Una vez hecho esto, se configura OSPF en los routers 
+0 y 2 tanto para IPv4 como IPv6 (es importante,para poder realizar los pasos de configuración en IPv6, ejecutar previamente el comando `ipv6 unicast-routing`)
+
+![alt text](configuración_OSPF_router_2.jpeg)
+
+![alt text](configuración_OSPF_router_0.jpeg)
+
+
+
+Ahora, se configura nuevamente la ruta BGP en el router 1 para que sea consciente del AS65001
+
+![alt text](BGP_router_1.jpeg)
+
+A continuación se le indica al Router 0 para que distribuya las rutas aprendidas por OSPF a BGP:
+
+![alt text](redistribute_OSPF_router_0.jpeg)
+
+
+Mediante el comando `show ip route` verificamos por un lado que el router 0 es consciente de la ruta BGP a AS65002, debido a la ruta BGP configurada previamente :
+
+![alt text](ip_route_router_0.jpeg)
+
+
+Luego, podemos ver que gracias a la distribución de OSPF a BGP establecida en el router 0, el router 1 "aprendió" la ruta que lleva a la red 192.168.3.0 ( Red a la cual está conectada PC4) 
+
+![alt text](ip_route_router_1.jpeg)
+
+Finalmente podemos ver que, nuevamente, PC4 puede acceder no solo a las PCs dentro de su AS sino tambíen a las del AS65002:
+
+
+![alt text](<Ping PC4 a PCs  AS65002.jpeg>)
+
+![alt text](<Ping PC4 a PCs  AS65001.jpeg>)
