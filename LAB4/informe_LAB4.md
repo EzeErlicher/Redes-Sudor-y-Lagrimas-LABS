@@ -11,7 +11,7 @@
 - Francisco Nicolas Oliva Cuneo
 
 ## Nombre del Grupo: ##
- **“Redes,Sudor y Lágrimas”** 
+**“Redes,Sudor y Lágrimas”**
 
 ## Integrantes: ##
 - Badariotti, Juan Miguel - 42260003
@@ -45,40 +45,135 @@ AS27790: Asignado a la Universidad Nacional de Córdoba
 
 AS10481: Asignado a Telecom Argentina S.A. (Aparecen multiples ASN para esta empresa)
 
-AS27730: Asignado a BBVA Banco Frances SA
+AS27730: Asignado a BBVA Banco Frances S.A.
 
 **¿Cómo podemos saber a que AS está asociada nuestra red?**
 
 Existen diversas páginas para saberlo, una de ellas es https://bgp.he.net/ que al ingresar nos indicará el ASN asignado de nuestra red. Un ejemplo es 
 
-![alt text](image.png)
-
+![alt text](<image.png>)
 
 Soporta los protocolos PV4 Y PV6
 
+Tambien podemos visualizar la información de los peers (pares de conexión BGP) de nuestro ASN, el cual corresponde a un proveedor u organización con presencia en Internet.
 
-
-Tambien podemos visualizar la información de los peers (pares de conexión BGP) de nuestro ASN, el cual corresponde a un proveedor u organización con presencia en Internet. 
-![alt text](image-1.png)
-
+![alt text](<image-1.png>)
 
 Tambien hay paginas como ipinfo.io que nos permiten visualizar la siguiente informacion:
-![alt text](image-2.png)
 
-![alt text](image-3.png)
+![alt text](<image-2.png>)
 
+![alt text](<image-3.png>)
+
+**¿Qué es el Border Gateway Protocol (BGP)?**
+
+El Border Gateway Protocol (BGP) es un protocolo de ruteo exterior (EGP) diseñado para intercambiar información de ruteo entre diferentes Sistemas Autónomos (AS) en internet. Es el protocolo que permite que redes independientes (por ejemplo, las de proveedores de internet, universidades, empresas) se comuniquen entre sí y compartan las mejores rutas para alcanzar distintas redes IP.
+BGP está definido en la RFC 4271 y se lo considera un protocolo de vector de camino, ya que en lugar de usar simplemente el costo o la distancia, elige rutas basándose en políticas definidas por el administrador de red y la lista de AS que una ruta atraviesa (AS Path).
+Es un protocolo confiable y robusto, pero también complejo y lento para converger, ya que está optimizado para estabilidad más que velocidad.
+
+**Resúmen del funcionamiento del BPG.**
+
+- Adquisición de vecino (peer):
+Los routers BGP establecen una sesión TCP (puerto 179) entre ellos para intercambiar información. Estos routers se llaman "pares" o peers. La relación puede ser interna (iBGP) o externa (eBGP).
+
+- Detección de vecino alcanzable:
+Una vez establecida la conexión TCP, los routers envían mensajes de tipo KEEPALIVE periódicamente para asegurarse de que el vecino sigue activo.
+
+- Detección de red alcanzable:
+BGP intercambia información sobre qué redes IP pueden alcanzarse a través de cada peer, usando mensajes de tipo UPDATE. Esta información incluye el camino de AS (AS-PATH), atributos como NEXT_HOP, y otros.
+
+Existen diferentes tipos de mensajes BGP como ser:
+
+- OPEN: Inicia la sesión BGP entre routers. Contiene información como ASN del router, versión BGP, etc.
+
+- UPDATE: Informa rutas nuevas alcanzables o elimina rutas obsoletas. Es el mensaje más complejo.
+
+- KEEPALIVE: Se envía regularmente para mantener viva la conexión entre pares BGP.
+
+- NOTIFICATION: Se envía cuando ocurre un error, y cierra la conexión.
+
+Todos los mensajes BGP comparten una cabecera de 19 bytes que incluye:
+
+- Marker (16 bytes): para autenticación y detección de errores.
+
+- Length (2 bytes): indica la longitud total del mensaje.
+
+- Type (1 byte): indica el tipo de mensaje (OPEN, UPDATE, etc.).
+
+Luego, cada tipo de mensaje tiene su propia estructura de datos.
+
+**¿Cual es la diferencia entre eBGP e iBGP?**
+
+- eBGP (External BGP):
+Se utiliza para intercambiar rutas entre routers que pertenecen a diferentes AS. Los routers eBGP normalmente están directamente conectados. Este tipo de BGP se usa para anunciar rutas públicas hacia otros AS.
+
+- iBGP (Internal BGP):
+Se utiliza dentro de un mismo AS para distribuir las rutas aprendidas por eBGP a todos los routers del AS. A diferencia del eBGP, los routers iBGP no necesitan estar directamente conectados, pero deben formar una malla completa (o usar route reflectors).
+
+**¿Qué es un AS de tránsito?**
+
+Un AS de tránsito es aquel que recibe tráfico de un AS y lo reenvía hacia otro AS, actuando como intermediario. Su objetivo es facilitar el paso de tráfico hacia otros destinos, no solo entregar tráfico hacia sus propias redes.
+
+En el ejemplo del trabajo el AS2 actúa como AS de tránsito, porque recibe tráfico desde AS1 a través de R2, lo enruta internamente usando iBGP (entre R2 y R3) y luego lo reenvía a AS3 a través de R3.
+
+**Ejemplo de conexiones AS de la conexión actual (PC con conexion Fibertel/Personal/Telecom):**
+
+- IP pública actual: 190.195.15.219
+
+- ASN actual: AS7303
+
+- Nombre del proveedor: Telecom Argentina S.A.
+
+- Ubicación: Argentina
+
+- Protocolos soportados: IPv4, IPv6
+
+- Tipo de AS: Tier 2 (proveedor de tránsito y acceso residencial)
+
+- Conexiones eBGP: Según el gráfico obtenido en bgpview.io/asn/7303, el AS7303 tiene conexiones eBGP con al menos 5 AS directamente visibles (AS22927, AS12956, AS3257, AS6762, AS33356). También aparecen conexiones indirectas o de segundo grado con otros (AS174, AS7018, AS6453, AS6939, AS6830, AS2497)
+Esto indica que AS7303 participa activamente del enrutamiento global, lo cual es consistente con su rol como ISP nacional.
+
+- Gráfico: El siguiente diagrama muestra las conexiones de AS7303 a uno y dos grados de separación:
+
+![alt text](<Screenshot 2025-05-31 121902.png>)
+
+**Ejemplo de conexiones AS de la conexión secundaria (Smartphone con conexión 4G ClaroAR):**
+
+- IP pública actual: 190.195.15.219
+
+- ASN actual: AS7303
+
+- Nombre del proveedor: Telecom Argentina S.A.
+
+- Ubicación: Argentina
+
+- Protocolos soportados: IPv4, IPv6
+
+- Tipo de AS: Tier 2 (proveedor de tránsito y acceso residencial)
+
+Se puede observar que si bien tienen diferentes conexiónes se encuentran en la misma AS.
+
+**Ejemplo de incidente famoso:**
+
+BGP leak de Vodafone India (junio 2019)
+
+- Causa: Vodafone India (ASN 55410) publicó por error una gran cantidad de prefijos IP a través de BGP, lo que causó un "BGP leak". Estos prefijos se redistribuyeron a nivel global a través de AS174 (Cogent), un proveedor de tránsito importante.
+
+- Consecuencia: Grandes interrupciones en servicios como Cloudflare, Amazon AWS y Facebook. Pérdida de conectividad global parcial durante más de 1 hora. Muchos usuarios no pudieron acceder a sitios web ni a servicios de nube.
+
+- Razón técnica: El router de Vodafone filtró rutas que no debía anunciar y otros AS confiaron en esa información, redirigiendo tráfico por caminos incorrectos.
+
+- Impacto: Este evento mostró que BGP no tiene validación de rutas por defecto, lo que lo hace vulnerable a errores o ataques (como hijacking).
 
 ## PARTE II: Simulaciones y análisis ##
 
 Se construyo la siguiente topología conformada por dos AS en Packet Tracer: 65001 Y 65002
 
-![alt text](Network_topology.jpeg)
-
+![alt text](<Network_topology.jpeg>)
 
 La tabla de red queda definida de esta manera:
 
 ![alt text](<Tabla de la red.png>)
-
 
 Se establecen las rutas BGP en ambos routers con los siguientes comandos:
 
@@ -98,32 +193,24 @@ con la ayuda del comando `show ip bgp summary`, se verifica que se hallan establ
 
 ![alt text](<summary BGP Router 1.jpeg>)
 
-
 Una vez configurado el protocolo BGP en los routers, se procede a configurar las direcciones IPv4 e IPv6 según se definía anteriormente en la tabla, para luego  testear la conectividad entre todas las PCs:
-
 
 **Testeo de conectividad de PC0 a las PCs del AS 65002**
 
 ![alt text](<Ping PC0 a PC2 y PC3-1.jpeg>)
 
-
 **Testeo de conectividad de PC1 a las PCs del AS 65002**
 
 ![alt text](<ping  PC1 a PC2 y PC3.jpeg>)
-
 
 **Testeo de conectividad de PC2 a las PCs del AS 65001**
 
 ![alt text](<Ping PC2 a PC0 y PC1.jpeg>)
 
 
-
 **Testeo de conectividad de PC3 a las PCs del AS 65001**
 
 ![alt text](<Ping PC3 a PC0 y PC1-1.jpeg>)
-
-
-
 
 ### Simular tráfico en la red. Apagar y encender alguno de los routers, y analizar el tráfico visualizado ###
 
@@ -132,14 +219,11 @@ que se emiten como consecuencia del enlace interrumpido:
 
 ![alt text](simulation_shuting_down_router_0.jpeg)
 
-
-
 Luego, al apagar y encender el router:
 
 ![alt text](<simulation turning router 0 back on.jpeg>)
 
- Se observa el intercambio de paquetes BGP OPEN, luego KEEPALIVEs, posteriormente  UPDATES y luego solo se siguen comunicando con KEEPALIVEs  indefinidamente.
-
+Se observa el intercambio de paquetes BGP OPEN, luego KEEPALIVEs, posteriormente  UPDATES y luego solo se siguen comunicando con KEEPALIVEs  indefinidamente.
 
 ### Agregado de un nuevo host a AS65001 ###
 
@@ -153,21 +237,17 @@ Por lo tanto, a la tabla de la red original se le añaden estas nuevas entradas:
 
 Se configuraron rutas estáticas IPv4 e IPv6, usando los comandos de configuración global `ip route` y `ipv6 route` tanto en el router 2 como en el router 0 y 1, para que de esta manera, PC4 pudiera comunicarse con el resto de las PCs, a continuación se comprueba la conectividad:
 
-
-
 **Testeo de la conectividad de PC4 al resto de los host en AS65001**:
 
 ![alt text](<Ping PC4 a PC0 y PC1.jpeg>)
 
 ![alt text](<Ping Ipv6 PC4 a PC0 y PC1.jpeg>)
 
-
 **Testeo de la conectividad de PC4 a los host en AS65002**:
 
 ![alt text](<Ping PC0 a PC2 y PC3-2.jpeg>)
 
 ![alt text](<Ping Ipv6 PC4 a PC2 y PC3.jpeg>)
-
 
 ### Redistribución de OSPF en BGP ###
 
@@ -178,8 +258,6 @@ Se procede, en primera instancia, a eliminar todas las rutas estáticas establec
 
 ![alt text](configuración_OSPF_router_0.jpeg)
 
-
-
 Ahora, se configura nuevamente la ruta BGP en el router 1 para que sea consciente del AS65001
 
 ![alt text](BGP_router_1.jpeg)
@@ -188,18 +266,15 @@ A continuación se le indica al Router 0 para que distribuya las rutas aprendida
 
 ![alt text](redistribute_OSPF_router_0.jpeg)
 
-
 Mediante el comando `show ip route` verificamos por un lado que el router 0 es consciente de la ruta BGP a AS65002, debido a la ruta BGP configurada previamente :
 
 ![alt text](ip_route_router_0.jpeg)
-
 
 Luego, podemos ver que gracias a la distribución de OSPF a BGP establecida en el router 0, el router 1 "aprendió" la ruta que lleva a la red 192.168.3.0 ( Red a la cual está conectada PC4) 
 
 ![alt text](ip_route_router_1.jpeg)
 
 Finalmente podemos ver que, nuevamente, PC4 puede acceder no solo a las PCs dentro de su AS sino tambíen a las del AS65002:
-
 
 ![alt text](<Ping PC4 a PCs  AS65002.jpeg>)
 
