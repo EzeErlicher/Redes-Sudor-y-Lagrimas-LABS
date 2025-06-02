@@ -26,7 +26,7 @@ print(f"  Cliente conectado en {clientAddress[0]}:{clientAddress[1]}")
 logToFile = "-l" in sys.argv
 if logToFile:
     # Archivo de logueo de los envios de paquetes
-    filePath = f"logs/serverUDPLog_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+    filePath = f"logs/serverUDPLog.txt"
     logFile = open(filePath, "w", encoding="utf-8")
     print(f"  Log de ejecución guardado en archivo '{filePath}'")
 

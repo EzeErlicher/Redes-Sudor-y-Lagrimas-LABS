@@ -24,7 +24,7 @@ print("Conexión con el servidor exitosa.")
 # Revisar si se pasa el argumento -l
 logToFile = "-l" in sys.argv
 if logToFile:
-    filePath = f"logs/clientTCPLog_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+    filePath = f"logs/clientTCPLog.txt"
     logFile = open(filePath, "w", encoding="utf-8")
     print(f"Log de ejecución guardado en archivo '{filePath}'")
 
