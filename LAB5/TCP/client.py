@@ -1,5 +1,6 @@
 import socket
 import struct
+from datetime import datetime
 
 HOST = 'localhost'
 PORT = 9090
@@ -7,9 +8,6 @@ PORT = 9090
 groupName = "Redes, sudor y lágrimas"
 packetCount = 0           # Contador de paquetes recibidos
 totalPackets = 100          # Cantidad de paquetes a recibir
-
-logToConsole = True
-logToFile = False
 
 # Crea el socket TCP y la solicitud de conexión al servidor
 clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -20,6 +18,11 @@ except ConnectionRefusedError:
     exit()
 
 print("Conexión con el servidor exitosa.")
+
+# Archivo de logueo de la recepción de paquetes
+filePath = f"logs/clientTCPLog{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+logFile = open(filePath, "w",encoding="utf-8")
+print(f"Log de ejecución guardado en archivo '{filePath}'")
 
 while packetCount < totalPackets:
     try:
@@ -47,6 +50,7 @@ while packetCount < totalPackets:
         
         rx_message = body.decode('utf-8')
         #print(f"  Server: '{rx_message}'")
+        logFile.write(f"Mensaje {packetCount+1} recibido - '{rx_message}' - {datetime.now()}\n")
         packetCount += 1
 
     except (ConnectionAbortedError, ConnectionResetError):
