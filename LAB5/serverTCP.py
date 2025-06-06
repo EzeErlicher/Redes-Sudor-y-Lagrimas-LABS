@@ -5,12 +5,12 @@ from datetime import datetime
 import sys
 
 # IP local de la computadora
-HOST = 'localhost'
+HOST = '0.0.0.0'
 PORT = 9090
 
 groupName = "Redes, sudor y lágrimas"
-totalPackets = 10    # Cantidad de paquetes a transmitir
-sleepTime = 0.5        # Espera en segundos entre el envío de un paquete y el siguiente
+totalPackets = 100    # Cantidad de paquetes a transmitir
+sleepTime = 1        # Espera en segundos entre el envío de un paquete y el siguiente
 
 # Crea el socket TCP por IPv4 y lo asocia a la dirección especificada
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

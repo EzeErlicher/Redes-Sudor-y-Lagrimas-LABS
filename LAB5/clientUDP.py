@@ -4,7 +4,7 @@ from datetime import datetime
 import sys
 
 # IP local del servidor
-HOST = 'localhost'
+HOST = '192.168.0.165'
 PORT = 9090
 
 groupName = "Redes, sudor y lágrimas"
