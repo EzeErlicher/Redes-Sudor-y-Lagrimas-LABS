@@ -5,7 +5,7 @@ import sys
 from cryptography.fernet import Fernet
 
 # IP del servidor en la red local
-HOST = '192.168.0.165'
+HOST = '192.168.0.12'
 PORT = 9090
 
 groupName = "Redes, sudor y lágrimas"
